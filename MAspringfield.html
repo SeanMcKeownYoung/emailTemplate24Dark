@@ -1,0 +1,626 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<title>Title text replacement</title>
+
+		<style type="text/css">
+
+		/* Outlines the grids, remove when sending 
+		table td { border: 1px solid cyan; }*/
+		
+
+		/* CLIENT-SPECIFIC STYLES */
+		body, table, td, a, p { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+		table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+		img { -ms-interpolation-mode: bicubic; }
+		strong {font-weight: 900;}
+		:hover.hovertext {font-weight: 500 !important ;color:#000000 !important;}
+		.r-pad { padding-right: 10px !important; }
+        .parent {
+            width: 600px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            grid-template-rows: 1fr;
+            grid-column-gap: 3px;
+            grid-row-gap: 10px;
+        }
+
+
+		/* RESET STYLES */
+		img { border: 0; outline: none; text-decoration: none; }
+		table { border-collapse: collapse !important; }
+		body { margin: 0 !important; padding: 0 !important; width: 100% !important; }
+		h1, h2, h3, h4, h5, h6, p { margin: 0 !important; -webkit-font-smoothing: antialiased !important;}
+			
+		/* HIDE ON DESKTOP */
+			.desktopOff { max-height: 0px; font-size: 0px; display: none; }
+			
+		/* iOS BLUE LINKS */
+		a[x-apple-data-detectors] {
+			color: inherit !important;
+			text-decoration: none !important;
+			font-size: inherit !important;
+			font-family: inherit !important;
+			font-weight: inherit !important;
+			line-height: inherit !important;
+		}
+
+		/* ANDROID CENTER FIX */
+		div[style*="margin: 16px 0;"] { margin: 0 !important; }
+
+        /* CUSTOM FONT EMBED (none needed on this template)*/
+
+
+		/* MEDIA QUERIES - THESE ARE MOBILE STYLES - STAY WITHIN THE @MEDIA CURLY BRACES */
+		@media all and (max-width:639px){ 
+			/*MOBILE RESET STYLES*/
+            
+			.mobile-360 { width:360px!important; padding: 0 !important; }
+			.mobile-320 { width:320px!important; padding: 0 !important; }
+			.mobile-300 { width:300px!important;  padding: 0 !important; }
+			.mobile-280 { width:280px!important;  padding: 0 !important; }
+			.stack { width:300px!important; display:block!important; padding: 0 !important; }
+			.img { width:100% !important; height:auto !important; }
+            .none { width:0px !important; height:auto !important; }
+			/*MOBILE VISIBILITY*/
+			.mobileOff { width: 0px !important; display: none !important; }
+			.mobileOn { display: block !important; max-height:none !important; font-size:10px !important; }
+			/*ALIGNERS*/
+			.center-align { text-align: center !important; margin: 0 auto !important; }
+			.left-align { text-align: left !important; }
+			.logo { text-align: left !important; padding-left: 10px;}
+			.right-align { text-align: right !important; }
+			/*HEIGHT PADDING*/
+			.h-pad { padding: 5px 0 !important; }
+			.spacer-resize {height: 0 !important; padding-bottom: 20px !important;} 
+			.spacer-resize2 {height: 0 !important; padding-bottom: 10px !important;} 
+			/*WIDTH PADDING*/
+			.w-pad { padding-left: 20px !important; margin-left: 20px !important;}
+			.w-padText {padding-right: 20px !important;}
+			.l-pad { padding-left: 25px !important; }
+			.w-pad2 { padding: 0 10px !important; }
+			/*TEXT RESIZERS*/
+			.h1-text-resize { font-size:35px !important; line-height:1.2 !important; text-align: left !important; margin-left: 10px !important;}
+			.h2-text-resize { font-size:18px !important; line-height:1.2 !important; }
+			.h3-text-resize { font-size:16px !important; line-height:1.2 !important; }
+			.body-text-resize { font-size:14px !important; line-height:1.2 !important; }
+			.intro-text-resize { font-size:20px !important; line-height:1.6 !important; font-weight: 400 !important; text-align: left !important; margin-left: 10px !important; margin-right: 15px !important;}
+			.calendar-text-resize { font-size:20px !important; line-height:1.2 !important; font-weight: 400 !important; text-align: left !important; margin-left: 10px !important;}
+			.small-text-resize { font-size:16px !important; line-height:1.6 !important; }
+			/*IMAGE RESIZERS*/
+			.imgresize100 img {width:100% !important; height:auto !important;}
+			.imgresize100h img {height:40px !important; width:auto !important;}
+			.imgresize110 img {width:120% !important; height:auto !important;}
+			.imgresize10vw img {width:90vw !important; height:auto !important;}
+			.imgresize120 img {width:120% !important; height:auto !important;}
+			.imgresize90 img {width:90% !important; height:auto !important; margin-left: 0 !important;}
+			.imgresize80 img {width:80% !important; height:auto !important;}
+			.imgresize70 img {width:70% !important; height:auto !important;}
+			/*WIDTH RESIZERS*/
+			.resize90 {width:90% !important; height:auto !important;}
+            .resize100 {width:100% !important; height:auto !important;}
+			.w-resize-button { width:90% !important; max-width: 320px !important; }
+            .parent {
+                display: inline !important;}
+            .addToCalendar {width:82% !important; max-width: 320px !important;  margin-bottom: 10px; margin-left: 20px; margin-right: 40px;}
+
+
+
+
+		/*INSERT ADDITIONAL MOBILE SYTLES ABOVE THIS LINE*/
+		}
+
+		</style>
+	</head>
+<body style="margin:0; padding:0; mso-line-height-rule: exactly;">
+
+<center>
+<!-- mobile-300 TABLE -->
+<table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">
+	<!-- INVISIBLE PREHEADER: 35-100 characters recommended -->
+	<tr>
+		<td style="display:none !important;
+		visibility:hidden;
+		mso-hide:all;
+		font-size:1px;
+		color:#ffffff;
+		line-height:1px;
+		max-height:0px;
+		max-width:0px;
+		opacity:0;
+		overflow:hidden;">
+        Title text replacement
+		</td>
+	</tr>
+	<!-- END PREHEADER -->
+	<tr>
+		<td align="center" valign="top">
+	<!-- TEMPLATE BODY - INSERT SNIPPETS BELOW -->
+	
+<!-- FULL WIDTH BACKGROUND COLOR WRAP - BLACK 000000 -->
+<table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" style="mso-shading: rgb(0, 0, 0)">
+
+<!-- !!!!!! START SPRINGFIELD REPUBLICAN LOCALIZATION !!!!!! -->
+<!-- !!!!!! START SPRINGFIELD REPUBLICAN LOCALIZATION !!!!!! -->
+<!-- !!!!!! START SPRINGFIELD REPUBLICAN LOCALIZATION !!!!!! -->
+<tr>
+    <td align="center" valign="top">
+		<table class="mobile-320" role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" bgcolor="#000000">
+			<tr>
+				<td align="center" valign="top">
+				<!-- ALIGNMENT TABLE -->
+				<table class="mobile-300" role="presentation" width="600" cellpadding="0" cellspacing="0" border="0">
+				<!-- SPACER ABOVE LOGO -->
+					<tr>
+						<td height="40" style="font-size:10px; line-height:1;">&nbsp;</td>
+					</tr>
+					<tr>
+					<!-- ADD IMG RESIZER CLASS TO THIS <td>, NOT <img> -->
+						<td class="imgresize70 img logo" align="center" valign="top">
+							<img src="https://media.sailthru.com/composer/images/sailthru-prod-6fj/MA_Springfield%20DARK.png" width="320" style="margin:0; padding:0; border:none; display:block;" border="0" alt="The Republican Online" >
+						</td>
+					</tr>
+				<!-- SPACER BELOW LOGO WITH MOBILE ADJUST-->
+					<tr>
+						<td class="spacer-resize" height="70" style="font-size:10px; line-height:1;">&nbsp;</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+<!-- !!!!!! END SPRINGFIELD REPUBLICAN LOCALIZATION !!!!!! -->
+<!-- !!!!!! END SPRINGFIELD REPUBLICAN LOCALIZATION !!!!!! -->
+<!-- !!!!!! END SPRINGFIELD REPUBLICAN LOCALIZATION !!!!!! -->
+
+
+
+<!-- !!!!!! START CAMPAIGN SUB !!!!!! -->
+<!-- !!!!!! START CAMPAIGN SUB !!!!!! -->
+<!-- !!!!!! START CAMPAIGN SUB !!!!!! -->
+
+		<!-- CAMPAIGN TEXT -->
+			<!-- FULL WIDTH TEXT -->
+			<table class="mobile-320" role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" bgcolor="#000000">
+				<tr>
+					<td align="center" valign="top">
+					<!-- ALIGNMENT TABLE - CHANGE width="" TO ADJUST DISPLAY WIDTH -->
+						<table class="mobile-300" role="presentation" width="600" cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td align="center" valign="top">
+									<h1 class="h1-text-resize" style="font-family: Helvetica, sans-serif; font-weight: 200; font-size: 50px; line-height: 1; color: #ffffff;">Read it online</h1>
+								</td>
+							</tr>
+							<tr>
+								<td align="center" valign="top">
+									<h1 class="h1-text-resize" style="font-family: Helvetica, sans-serif; font-weight: 200; font-size: 50px; line-height: 1; color: #ffffff;">IpsumLorem 00.</h1>
+								</td>
+							</tr>
+								<!-- SPACER -->
+									<tr>
+										<td height="30" class="spacer-resize2" style="font-size:10px; line-height:1;">&nbsp;</td>
+									</tr>
+						</table>
+					<!-- ALIGNMENT TABLE - CHANGE width="" TO ADJUST DISPLAY WIDTH -->
+						<table class="mobile-300" role="presentation" width="500" cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td align="center" valign="top">
+									<p class="intro-text-resize" style="font-family: Helvetica, sans-serif; font-weight: 200; font-size: 20px; line-height: 2; color: #ffffff;"><strong>Strong intro lines intro intro intro.</strong>
+										Ur autemos sinvellant, simusan ditaquunt repudit, simolup tatur, coribusae qui demporum qui res alitas sequi blabo. Et harum qui omnihiciae odi volut hicatur epudit, que et ex et fugiae ilis utem re, voluptat ex esciis consequ.</p>
+								</td>
+							</tr>
+							<!-- SPACER -->
+							<tr>
+								<td height="30" style="font-size:10px; line-height:1;">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			<!-- END FULL WIDTH TEXT -->
+		<!-- END CAMPAIGN TEXT -->
+
+		<!-- START CAMPAIGN ANIMATION -->
+
+					<!-- PARENT ALIGNMENT TABLE -->
+						<table class="mobile-320" role="presentation" width="640" cellpadding="0" cellspacing="0" border="0">
+							<tr>
+			<!-- LEFT SIDECAR -->
+							<!-- ADD IMG RESIZER CLASS TO THIS <td>, NOT <img> -->
+								<td class="stack imgresize90 img" width="400" align="left" valign="top">
+								<!-- FILE DIMENSIONS SHOULD BE DOUBLE FOR RETINA DISPLAY
+									width="" attribute must be set -->
+
+								<img src="https://media.sailthru.com/composer/images/sailthru-prod-6fj/YE-ANIMATION-FINAL.gif" width="380" style="margin-left: 10px; padding:0; border:none; display:block; filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.6));" border="0" alt="Cover" />
+								</td>
+					<!-- COLUMN SPACER -->
+					<td class="stack" width="10" align="center" valign="top" style="font-size: 0px; line-height: 0px;">&nbsp;</td>
+
+<!-- !!!!!! END CAMPAIGN SUB !!!!!! -->
+<!-- !!!!!! END CAMPAIGN SUB !!!!!! -->
+<!-- !!!!!! END CAMPAIGN SUB !!!!!! -->
+
+
+
+
+
+
+			<!-- RIGHT SIDECAR -->
+								<td class="stack" width="200" align="left" valign="top">
+									<table class="mobile-280 w-pad" role="presentation" cellpadding="0" cellspacing="0" border="0" >
+
+							<!-- HEADLINE -->
+						<!-- MOBILE-ONLY SPACER: ADDS SPACE ABOVE HEADLINE -->
+						<tr>
+							<td class="desktopOff mobileOn" height="10" style="font-size:10px; line-height:1;">&nbsp;</td>
+						</tr>
+								<table class="mobile-280 w-pad" width="200" border="0" cellspacing="0" cellpadding="0" align="center">
+								<tr>
+									<td height="30" style="font-size:10px; line-height:1;">&nbsp;</td>
+								</tr>
+										<td class="left-align" align="left" valign="top">		
+									<h2 class="" style="display: inline-block; font-family: Helvetica, sans-serif; font-weight: 500; font-size: 20px; line-height: 1; color: #ffffff;">FREE for subscribers.</h2>
+										</td>
+										<!-- ROW SPACER -->
+											<tr>
+												<td height="10" style="font-size:10px; line-height:1;">&nbsp;</td>
+											</tr>
+									</tr>
+
+
+							<!-- BODY TEXT 01 -->
+									<tr>
+										<td class="left-align w-padText" align="left" valign="top">
+											<p class="" style="font-family: Helvetica, sans-serif; font-weight: 500; font-size: 16px; line-height: 1.5; color: #ffffff;">All print customers can access the online newspaper & many extras at no additional cost.</p>
+										</td>
+									</tr>
+								<!-- ROW SPACER -->
+									<tr>
+										<td height="20" style="font-size:10px; line-height:1;">&nbsp;</td>
+									</tr>
+						<!-- MOBILE-ONLY SPACER: ADDS SPACE ABOVE HEADLINE -->
+						<tr>
+							<td class="desktopOff mobileOn" height="10" style="font-size:10px; line-height:1;">&nbsp;</td>
+						</tr>
+									</table>
+						<!-- END BODY TEXT 01 -->
+						<!-- BODY TEXT 02 -->
+						<table class="mobile-280 w-pad" width="200" border="0" cellspacing="0" cellpadding="0" align="center">
+							<tbody>
+							  <tr>
+									<td class="left-align" align="left" style="font-family: Helvetica, sans-serif; font-size:20px; font-weight: 500; color:#f94040; -webkit-text-size-adjust: none;">
+										Don&#8217;t have a login?
+									</td>
+								</tr>
+							  <tr>
+										<!-- ROW SPACER -->
+										<tr>
+											<td height="10" style="font-size:10px; line-height:1;">&nbsp;</td>
+										</tr>						
+							 
+										<tr>
+											<td class="left-align w-padText" align="left" valign="top">
+												<p class="textMode" style="font-family: Helvetica, sans-serif; font-weight: 500; font-size: 16px; line-height: 1.5; color: #f94040;">Start by activating your account. <em>Click here.</em></p>
+											</td>
+										</tr>
+									<!-- ROW SPACER -->
+										<tr>
+											<td height="10" style="font-size:10px; line-height:1;">&nbsp;</td>
+										</tr>
+								<td align="left">
+										<style>.effect.effect-2 {transition: all 0.2s linear 0s; &:before {content: "➜"; align-items: center; justify-content: center; display: flex; position: absolute; top: 0;right: -50px; width: 50px; height: 100%; background-color: #ffffff5e; transition: all 0.2s linear 0s;} &:hover {text-indent: 15px; &:before {right: 0; text-indent: 0px;}}}
+										.effect {text-align: left; display: inline-block; position: relative;text-decoration: none;overflow: hidden;}
+										</style>
+								<!-- BULLETPROOF BUTTON -->
+								<table class="w-resize90 " width="100%" border="0" cellspacing="0" cellpadding="12">
+								<tbody><tr>
+								<td class="w-resize-button effect effect-2" align="left" 
+								style="font-family:Helvetica, sans-serif; font-size:18px;font-weight: 400;color:#ffffff; display:block;vertical-align:middle; -webkit-text-size-adjust: none; padding:9px 0px 9px 12px; background-color: #f94040; ">
+								<a href="https://myaccount.masslive.com" target="_blank" style="color:#ffffff; text-decoration:none; display:inline-block; width:100%">Activate!</a>
+								</td>
+								</tr>
+								</tbody></table>
+								<!-- BULLETPROOF BUTTON -->
+								</td>
+							</tr>
+							<tr>
+							<td style="font-size:0px; line-height:0px" height="20">&nbsp;</td>
+						<!-- MOBILE-ONLY SPACER: ADDS SPACE ABOVE HEADLINE -->
+						<tr>
+							<td class="desktopOff mobileOn" height="20" style="font-size:10px; line-height:1;">&nbsp;</td>
+						</tr>
+						</tr>
+						</tbody></table>
+						<!-- END BODY TEXT 02 -->
+						<!-- BODY TEXT 03 -->
+				  <table class="mobile-280 w-pad" width="200" border="0" cellspacing="0" cellpadding="0" align="center">
+					
+					<tbody>
+					  <tr>
+							<td class="left-align" align="left" style="font-family: Helvetica, sans-serif; font-size:20px; font-weight: 500; color:#00bfff; -webkit-text-size-adjust: none;">
+								Already have a login?
+							</td>
+						</tr>
+					  <tr>
+								<!-- ROW SPACER -->
+								<tr>
+									<td height="10" style="font-size:10px; line-height:1;">&nbsp;</td>
+								</tr>						
+					 
+								<tr>
+									<td class="left-align w-padText" align="left" valign="top">
+										<p class="textMode" style="font-family: Helvetica, sans-serif; font-weight: 500; font-size: 16px; line-height: 1.5; color: #00bfff;">Explore The Republican Online. <em>Click here.</em></p>
+									</td>
+								</tr>
+							<!-- ROW SPACER -->
+								<tr>
+									<td height="10" style="font-size:10px; line-height:1;">&nbsp;</td>
+								</tr>
+						<td align="left">
+								<style>.effect.effect-2 {transition: all 0.2s linear 0s; &:before {content: "➜"; align-items: center; justify-content: center; display: flex; position: absolute; top: 0;right: -50px; width: 50px; height: 100%; background-color: #ffffff5e; transition: all 0.2s linear 0s;} &:hover {text-indent: 15px; &:before {right: 0; text-indent: 0px;}}}
+								.effect {text-align: left; display: inline-block; position: relative;text-decoration: none;overflow: hidden;}
+								</style>
+						<!-- BULLETPROOF BUTTON -->
+						<table class="w-resize90 " width="100%" border="0" cellspacing="0" cellpadding="12">
+						<tbody><tr>
+						<td class="w-resize-button effect effect-2" align="left" 
+						style="font-family:Helvetica, sans-serif; font-size:18px;font-weight: 400;color:#ffffff; display:block;vertical-align:middle; -webkit-text-size-adjust: none; padding:9px 0px 9px 12px; background-color: #00bfff; ">
+						<a href="https://myaccount.masslive.com" target="_blank" style="color:#ffffff; text-decoration:none; display:inline-block; width:100%">Explore!</a>
+						</td>
+						</tr>
+						</tbody></table>
+						<!-- BULLETPROOF BUTTON -->
+						</td>
+					</tr>
+					<tr>
+					<td style="font-size:0px; line-height:0px" height="20">&nbsp;</td>
+				</tr>
+				</tbody></table>
+						<!-- ROW SPACER -->
+						<tr>
+							<td height="30" style="font-size:20px; line-height:1;">&nbsp;</td>
+						</tr>
+				<!-- END BODY TEXT 03 -->
+
+ <!-- FULL WIDTH CALENDAR -->
+		<table class="mobile-320" role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" bgcolor="#000000">
+			<tr>
+				<td align="center" valign="top">
+			<!-- ALIGNMENT TABLE - CHANGE width="" TO ADJUST DISPLAY WIDTH -->
+				<table class="mobile-300" role="presentation" width="600" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td class="mobileOff" align="center" valign="top">
+							<hr style="margin-left: 25px; margin-bottom: 15px;"width="90%" color="white" size="1px" />
+							<p class="calendar-text-resize left-align" style="font-family: Helvetica, sans-serif; font-weight: 500; font-size: 20px; line-height: 2; color: #ffffff">Set a reminder on your calendar. </p>
+
+                        </td>
+						<td class="desktopOff mobileOn" align="left" valign="top">
+							<hr style="margin-left:10px; margin-bottom: 15px;"width="70%" color="white" size="1px" />
+							<p class="calendar-text-resize left-align" style="font-family: Helvetica, sans-serif; font-weight: 500; font-size: 20px; line-height: 2; color: #ffffff">Set a reminder. </p>
+                            <tr>
+                                <td height="15" style="font-size:10px; line-height:1;">&nbsp;</td>
+                            </tr>
+                        </td>
+                </table>
+
+			<!-- ALIGNMENT TABLE - CHANGE width="" TO ADJUST DISPLAY WIDTH -->
+            <table class="mobile-300" role="presentation" width="600" cellpadding="0" cellspacing="0" border="0">
+                <div class="parent">
+                    <div>
+                        <style>.addToCalendar {background-color:transparent;border-radius:0px;border:1px solid #ffffff;;display:inline-block;cursor:pointer;color:#ffffff;font-family:Helvetica, sans-serif; font-size:12px;font-weight: 400; width: 140px; padding:10px 0px;text-decoration:none;text-shadow:0px 0px 0px;}.addToCalendar:hover {color:#000000; background-color:#ffffff;}.addToCalendar:active {position:relative;top:1px;}</style>
+                            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=Invalid%20Date%2FInvalid%20Date&details=Entertainment%20news%20and%20reviews%20to%20make%20the%20Academy%20Awards%20more%20exciting%2C%20only%20in%20your%20Republican%20Online.%0Ahttps%3A%2F%2Fenewssr.repub.co&text=See%20the%20Oscars%20Special%20Section%20Online%21" target="_blank" class="addToCalendar"><i class="fa fa-google fa-fw"></i>Google Calendar</a>
+                    </div>
+                    <div>
+                        <style>.addToCalendar {background-color:transparent;border-radius:0px;border:1px solid #ffffff;;display:inline-block;cursor:pointer;color:#ffffff;font-family:Helvetica, sans-serif; font-size:12px;font-weight: 400; width: 140px; padding:10px 0px;text-decoration:none;text-shadow:0px 0px 0px;}.addToCalendar:hover {color:#000000; background-color:#ffffff;}.addToCalendar:active {position:relative;top:1px;}</style>
+                            <a href="https://outlook.live.com/calendar/0/action/compose?allday=true&body=Entertainment%20news%20and%20reviews%20to%20make%20the%20Academy%20Awards%20more%20exciting%2C%20only%20in%20your%20Republican%20Online.%0Ahttps%3A%2F%2Fenewssr.repub.co&enddt=Invalid%20Date&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=Invalid%20Date&subject=See%20the%20Oscars%20Special%20Section%20Online%21" target="_blank" class="addToCalendar"><i class="fa fa-brands fa-windows"></i> Microsoft Outlook</a>
+                    </div>
+                    <div>
+                        <style>.addToCalendar {background-color:transparent;border-radius:0px;border:1px solid #ffffff;;display:inline-block;cursor:pointer;color:#ffffff;font-family:Helvetica, sans-serif; font-size:12px;font-weight: 400; width: 140px; padding:10px 0px;text-decoration:none;text-shadow:0px 0px 0px;}.addToCalendar:hover {color:#000000; background-color:#ffffff;}.addToCalendar:active {position:relative;top:1px;}</style>
+                            <a href="https://outlook.office.com/calendar/action/compose?allday=true&body=Entertainment%20news%20and%20reviews%20to%20make%20the%20Academy%20Awards%20more%20exciting%2C%20only%20in%20your%20Republican%20Online.%0Ahttps%3A%2F%2Fenewssr.repub.co&enddt=Invalid%20Date&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=Invalid%20Date&subject=See%20the%20Oscars%20Special%20Section%20Online%21" target="_blank" class="addToCalendar"><i class="fa fa-brands fa-windows"></i> Office 360</a>
+                    </div>
+                    <div>
+                        <style>.addToCalendar {background-color:transparent;border-radius:0px;border:1px solid #ffffff;;display:inline-block;cursor:pointer;color:#ffffff;font-family:Helvetica, sans-serif; font-size:12px;font-weight: 400; width: 140px; padding:10px 0px;text-decoration:none;text-shadow:0px 0px 0px;}.addToCalendar:hover {color:#000000; background-color:#ffffff;}.addToCalendar:active {position:relative;top:1px;}</style>
+                        <a href="https://calendar.yahoo.com/?desc=Entertainment%20news%20and%20reviews%20to%20make%20the%20Academy%20Awards%20more%20exciting%2C%20only%20in%20your%20Republican%20Online.%0Ahttps%3A%2F%2Fenewssr.repub.co&dur=allday&et=Invalid%20Date&st=Invalid%20Date&title=See%20the%20Oscars%20Special%20Section%20Online%21&v=60" target="_blank" class="addToCalendar"><i class="fa fa-brands fa-yahoo"></i>Yahoo Calendar</a>
+                </div>
+                </div>
+            </table>
+
+
+
+        </table>
+
+	<!-- END FULL WIDTH CALENDAR -->
+
+		<!-- SPACER -->
+		<tr>
+			<td height="50" style="font-size:10px; line-height:1;">&nbsp;</td>
+		</tr>
+</td>
+</tr>
+</table>
+<!-- END FULL WIDTH BACKGROUND COLOR - DARK -->
+
+
+<!-- !!!!!! START SPRINGFIELD REPUBLICAN LOCALIZATION !!!!!! -->
+<!-- !!!!!! START SPRINGFIELD REPUBLICAN LOCALIZATION !!!!!! -->
+<!-- !!!!!! START SPRINGFIELD REPUBLICAN LOCALIZATION !!!!!! -->
+<!-- FULL WIDTH BACKGROUND COLOR - LIGHT, FOOTER -->
+<table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#eae9e1">
+    <tr>
+        <td align="center" valign="top">
+
+    <!-- SECONDARY HEADLINE -->
+    <table class="mobile-320" role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" bgcolor="#eae9e1">
+        <!-- SPACER -->
+            <tr>
+                <td height="50" style="font-size:10px; line-height:1;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center" valign="top">
+            <!-- ALIGNMENT TABLE - CHANGE width="" TO ADJUST DISPLAY WIDTH -->
+                <table class="mobile-300" role="presentation" width="600" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <h2 style="font-family:Helvetica, sans-serif; font-weight: 100; font-size:32px; line-height:32px; -webkit-text-size-adjust: none; color: #707070; text-decoration: none; display: inline-block;">We're here to help</a></h2>
+                        </td>
+                    </tr>
+                </table>
+
+                </td>
+            </tr>
+        <!-- SPACER -->
+            <tr>
+                <td height="10" style="font-size:10px; line-height:1;">&nbsp;</td>
+            </tr>
+        </table>
+    <!-- END SECONDARY HEADLINE -->
+
+	<!-- 2 COLUMN CONTENT: IMAGE, TEXT, BUTTON -->
+		<table class="mobile-320" role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" bgcolor="#eae9e1">
+		<!-- SPACER -->
+			<tr>
+				<td height="10" style="font-size:10px; line-height:1;">&nbsp;</td>
+			</tr>
+			<tr>
+				<td align="center" valign="top">
+		<!-- PARENT ALIGNMENT TABLE -->
+				<table class="mobile-300" role="presentation" width="600" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+			<!-- LEFT COLUMN -->
+						<td class="stack" width="400" align="center" valign="top">
+
+						<table class="mobile-300" role="presentation" cellpadding="0" cellspacing="0" border="0">
+					<!-- BODY TEXT -->
+							<tr>
+								<td align="left" valign="top">
+									<p style="font-family:Helvetica, sans-serif; font-weight: 300; font-size:13.5px; line-height:1.6; -webkit-text-size-adjust: none; color: #000000; text-decoration: none; display: inline-block;">
+									<nobr>Having trouble viewing this email?</nobr>
+									<a rel="noopener" href="{view_url}" target="_blank" class="hovertext"  style="color:#62636b; text-decoration:underline;"><nobr>View in your browser</nobr></a>
+                                    <br><br>
+
+                                    To ensure receipt of our emails, please add <a rel="noopener" href="mailto:customercare@sts.masslive.com" target="_blank" class="hovertext"  style="color:#62636b; text-decoration:underline;">customercare@sts.masslive.com</a> to your address book or a safe sender list. You received this email because you are a subscriber to <a rel="noopener" href="https://www.masslive.com/" class="hovertext"  target="_blank" style="color:#62636b; text-decoration:underline;">masslive.com</a> or The Republican.</p>
+								</td>
+							</tr>
+						</table>
+
+						</td>
+			<!-- END LEFT COLUMN -->
+
+					<!-- COLUMN SPACER -->
+						<td class="stack h-pad" width="10" align="center" valign="top" style="font-size: 0px; line-height: 0px;">&nbsp;</td>
+
+			<!-- RIGHT COLUMN -->
+						<td class="stack" width="200" align="center" valign="top">
+
+						<table class="mobile-300" role="presentation" cellpadding="0" cellspacing="0" border="0">
+					<!-- BODY TEXT -->
+							<tr>
+								<td align="left" valign="top">
+									<p style="font-family:Helvetica, sans-serif; font-weight: 300; font-size:13.5px; line-height:1.6; -webkit-text-size-adjust: none; color: #000000; text-decoration: none; display: inline-block;">
+                                        <a rel="noopener" href="https://www.masslive.com/contactus/" class="hovertext" target="_blank"  style="color:#62636b; text-decoration:underline;">Contact Us</a><br>
+                                        <a rel="noopener" href="https://www.masslive.com/mobile-device/" class="hovertext"  target="_blank" style="color:#62636b; text-decoration:underline;">Download our app</a><br>
+                                        <a rel="noopener" href="https://www.masslive.com/privacy-policy/" class="hovertext"  target="_blank" style="color:#62636b; text-decoration:underline;">Privacy policy</a><br>
+                                        <a rel="noopener" href="https://subscription.masslive.com/newsletters/" class="hovertext"  target="_blank" style="color:#62636b; text-decoration:underline;">More newsletters</a><br>
+                                        <a rel="noopener" href="https://myaccount.masslive.com" class="hovertext"  target="_blank" style="color:#62636b; text-decoration:underline;">Manage subscription</a><br>
+                                        <a rel="noopener" href="{optout_confirm_url + '&list_param=' + blast.list}" class="hovertext"  target="_blank" style="color:#62636b; text-decoration:underline;">Unsubscribe</a>
+                                    </p>
+								</td>
+							</tr>
+						</table>
+
+						</td>
+			<!-- END RIGHT COLUMN -->
+					</tr>
+				</table>
+
+				</td>
+			</tr>
+		<!-- SPACER -->
+			<tr>
+				<td height="10" style="font-size:10px; line-height:1;">&nbsp;</td>
+			</tr>
+		</table>
+	<!-- END 2 COLUMN CONTENT: IMAGE, TEXT, BUTTON -->
+
+
+	<!-- 2 ELEMENTS -->
+    <table class="mobile-320" role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" bgcolor="#eae9e1">
+		<!-- SPACER -->
+			<tr>
+				<td height="20" style="font-size:10px; line-height:1;">&nbsp;</td>
+			</tr>
+			<tr>
+				<td align="center" valign="top">
+				<!-- ALIGNMENT TABLE -->
+				<table class="mobile-300" role="presentation" width="600" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+					<!-- ADD IMG RESIZER CLASS TO THIS <td>, NOT <img> -->
+
+						<td align="left" valign="top" style="position: relative;">
+							<div class="stack" style="display: flex; align-items: center; justify-content: left;">
+								<div style="max-width: 100%; max-height:100%;" class="r-pad">
+									<img src="https://media.sailthru.com/composer/images/sailthru-prod-6fj/MA_Springfield%20LIGHT.png" height="30" style="margin:0; padding:0; border:none;" border="0" alt="The Republican Online"/>
+								</div>
+								<div class="stack">
+									<p class="hovertext" style="font-family:Helvetica, sans-serif; font-weight: 400; font-size:12px; line-height:1.4; -webkit-text-size-adjust: none; color: #62636b; padding-top: 3px;">1860 Main St., Springfield, MA 01103</p>
+							 	</div>
+						</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		<!-- SPACER -->
+			<tr>
+				<td height="10" style="font-size:10px; line-height:1;">&nbsp;</td>
+			</tr>
+		</table>
+	<!-- END 2 ELEMENTS -->
+			
+	<!-- ! ADDRESS ! REQUIRED FOR ALL EMAILS ! -->
+		<table class="mobile-320" role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" bgcolor="#eae9e1">
+		<!-- SPACER -->
+			<tr>
+				<td height="10" style="font-size:10px; line-height:1;">&nbsp;</td>
+			</tr>
+			<tr>
+				<td align="center" valign="top">
+			<!-- ALIGNMENT TABLE -->
+				<table class="mobile-300" role="presentation" width="600" cellpadding="0" cellspacing="0" border="0">
+
+
+				<!-- ROW SPACER -->
+					<tr>
+						<td height="10" style="font-size:10px; line-height:1;">&nbsp;</td>
+					</tr>
+				<!-- COPYRIGHT -->
+					<tr>
+						<td align="left" valign="top">
+							<i style="font-family:'benton sans', Arial, sans-serif; font-weight: 400; font-size:9px; line-height:1.4; -webkit-text-size-adjust: none; color: #000000;"><font face="'benton sans', Arial, sans-serif">©2024. Advance Local. All rights reserved.</i>
+						</td>
+					</tr>
+				</table>
+
+				</td>
+			</tr>
+		<!-- SPACER -->
+			<tr>
+				<td height="10" style="font-size:10px; line-height:1;">&nbsp;</td>
+			</tr>
+		</table>
+	<!-- END ! ADDRESS ! REQUIRED FOR ALL EMAILS ! -->
+
+</td>
+</tr>
+</table>
+<!-- END FULL WIDTH BACKGROUND COLOR - LIGHT, FOOTER -->
+			
+	<!-- END TEMPLATE BODY - INSERT SNIPPETS ABOVE -->
+		</td>
+	</tr>
+</table>
+</center>
+{beacon}
+</body>
+</html>
